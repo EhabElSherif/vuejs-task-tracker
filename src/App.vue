@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<Header title="Task Tracker" />
-		<Tasks :tasks="tasks" />
+		<Tasks @delete-task="deleteTask" :tasks="tasks" />
 	</div>
 </template>
 
@@ -50,6 +50,13 @@ export default {
 				reminder: false,
 			},
 		]
+	},
+	methods:{
+		deleteTask(id){
+			if(confirm("Are you sure to delete this task?!!")){
+				this.tasks = this.tasks.filter(task => task.id !== id)
+			}
+		}
 	}
 }
 </script>
