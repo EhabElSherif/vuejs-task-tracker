@@ -1,5 +1,5 @@
 <template>
-    <div :class="[task.reminder ? 'reminder' : '','task']">
+    <div @dblclick="$emit('toggle-reminder',task.id)" :class="[task.reminder ? 'reminder' : '','task']">
         <h3 class="d-flex justify-content-between align-items-center">{{task.text}}
             <i @click="deleteTask(task.id)" class="fas fa-times" />
         </h3>
@@ -17,7 +17,8 @@ export default{
         deleteTask(id){
             this.$emit('delete-task',id)
         }
-    }
+    },
+    emits: ['toggle-reminder']
 }
 </script>
 
