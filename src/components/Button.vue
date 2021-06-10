@@ -1,5 +1,5 @@
 <template>
-    <button @click="OnClick()" class="btn btn-primary">{{text}}</button>
+    <button @click="OnClick()" :class="`btn btn-`+type">{{text}}</button>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
     },
     methods: {
         OnClick(){
-            console.log("joo")
+            this.$emit('btn-click')
         }
     }
 }

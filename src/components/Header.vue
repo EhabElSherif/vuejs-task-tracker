@@ -1,7 +1,7 @@
 <template>
     <header class="d-flex justify-content-between align-items-center my-3">
         <h1 class="m-0">{{title}}</h1>
-        <Button text="Press Here" type="primary" />
+        <Button @btn-click="$emit('toggle-add-form')" :text="show_add_task? 'Close' : 'Add Task'" :type="show_add_task? 'danger' : 'primary'" :show_add_task="show_add_task" />
     </header>
 </template>
 
@@ -15,6 +15,7 @@ export default {
     },
     props: {
         title: String,
+        show_add_task: Boolean
     }
 }
 </script>
