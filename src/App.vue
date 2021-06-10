@@ -1,6 +1,7 @@
 <template>
 	<div class="container">
 		<Header title="Task Tracker" />
+		<Tasks :tasks="tasks" />
 	</div>
 </template>
 
@@ -8,11 +9,47 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import Header from './components/Header.vue'
+import Tasks from './components/Tasks.vue'
+
 
 export default {
 	name: 'App',
 	components: {
-		Header
+		Header,
+		Tasks,
+	},
+	data(){
+		return {
+			tasks:[]
+		}
+	},
+	created(){
+		this.tasks = [
+			{
+				id: 1,
+				text: "task text 1",
+				day: "March 1st at 2:20pm",
+				reminder: true,
+			},
+			{
+				id: 2,
+				text: "task text 2",
+				day: "March 2st at 2:20pm",
+				reminder: false,
+			},
+			{
+				id: 3,
+				text: "task text 3",
+				day: "March 3st at 2:20pm",
+				reminder: true,
+			},
+			{
+				id: 4,
+				text: "task text 4",
+				day: "March 4st at 2:20pm",
+				reminder: false,
+			},
+		]
 	}
 }
 </script>
@@ -22,7 +59,6 @@ export default {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
 	color: #2c3e50;
 }
 </style>
